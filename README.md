@@ -59,5 +59,3 @@ Manufacturing results may vary depending on the material, process, and manufactu
 Unless otherwise noted, the contents of this repository are licensed under the **Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License (CC BY-NC-SA 4.0)**.
 
 [Read the license](./LICENSE.md)
-
-Commercial use requires separate permission from **La-Versa.works**.
