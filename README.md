@@ -39,21 +39,6 @@ Depending on the plate, the following files may be provided:
 
 Some keyboards may include multiple plate variants within the same folder.
 
-## Usage
-
-These files are intended for personal and non-commercial use.
-
-You are free to:
-
-- download the files;
-- manufacture plates for personal use;
-- modify the files;
-- share the original or modified files with appropriate attribution.
-
-**Commercial use requires separate permission from La-Versa.works.**
-
-If you would like to manufacture or distribute these designs commercially, please contact me first.
-
 ## Attribution
 
 Unless otherwise stated in the README accompanying a specific plate, the plate files in this repository were designed or adapted by **La-Versa.works**.
