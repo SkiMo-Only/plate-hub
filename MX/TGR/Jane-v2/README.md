@@ -14,10 +14,13 @@ Custom MX plate file for the **TGR Jane v2**.
 
 - File: [`jane-v2.dxf`](./jane-v2.dxf)
 - Switch type: MX
+- Layout: F12
 
 ## Notes
 
 Plate file by **La-Versa.works**.
+
+This plate is designed for the **F12 layout** and features enlarged stabilizer cutouts for easier stabilizer removal.
 
 Please verify dimensions, tolerances, material thickness, and compatibility before manufacturing.
 
