@@ -45,6 +45,21 @@ Unless otherwise stated in the README accompanying a specific plate, the plate f
 
 Some EC plate designs may use modified switch-cutout geometry initially based on work by **Cipulot**.
 
+## Catalog website
+
+A browseable catalog lives in [`web/`](./web). It reads the `MX/` and `EC/` folders at build time and shows plate previews, variants, notes, and download links.
+
+```text
+cd web
+pnpm install
+pnpm dev
+```
+
+Then open the printed local URL. Production builds (`pnpm build`) copy plate files into `web/dist/files` so GitHub Pages can serve previews and CAD downloads.
+
+GitHub Pages is deployed from `main` by [`.github/workflows/pages.yml`](./.github/workflows/pages.yml). Enable Pages with the **GitHub Actions** source in the repository settings.
+
+
 
 ## Disclaimer
 
