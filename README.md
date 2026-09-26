@@ -1,33 +1,6 @@
 # Plate Hub
 
-A collection of custom keyboard plate files by **La-Versa.works**.
-
-This repository contains plate files for various custom keyboards.
-
-## Structure
-
-```text
-plate-hub/
-├── MX/
-│   └── Brand/
-│       └── Keyboard/
-│
-└── EC/
-    └── Brand/
-        └── Keyboard/
-```
-
-### MX
-
-Plates designed for MX-style mechanical switches.
-
-[Browse MX plates](./MX)
-
-### EC
-
-Plates designed for electro-capacitive keyboards and related EC switch systems.
-
-[Browse EC plates](./EC)
+A collection of custom MX and EC keyboard plate files by **La-Versa.works**.
 
 ## File Formats
 
@@ -43,23 +16,7 @@ Some keyboards may include multiple plate variants within the same folder.
 
 Unless otherwise stated in the README accompanying a specific plate, the plate files in this repository were designed or adapted by **La-Versa.works**.
 
-Some EC plate designs may use modified switch-cutout geometry initially based on work by **Cipulot**.
-
-## Catalog website
-
-A browseable catalog lives in [`web/`](./web). It reads the `MX/` and `EC/` folders at build time and shows plate previews, variants, notes, and download links.
-
-```text
-cd web
-pnpm install
-pnpm dev
-```
-
-Then open the printed local URL. Production builds (`pnpm build`) copy plate files into `web/dist/files` so GitHub Pages can serve previews and CAD downloads.
-
-GitHub Pages is deployed from `main` by [`.github/workflows/pages.yml`](./.github/workflows/pages.yml). Enable Pages with the **GitHub Actions** source in the repository settings.
-
-
+Some EC plate designs may use modified switch and stabilizer cutout geometry originally based on work by **Cipulot**. Where applicable, this is noted in the README accompanying the relevant plate.
 
 ## Disclaimer
 
@@ -74,3 +31,5 @@ Manufacturing results may vary depending on the material, process, and manufactu
 Unless otherwise noted, the contents of this repository are licensed under the **Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License (CC BY-NC-SA 4.0)**.
 
 [Read the license](./LICENSE.md)
+
+Commercial use requires separate permission from **La-Versa.works**.
