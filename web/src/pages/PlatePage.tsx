@@ -49,7 +49,7 @@ export function PlatePage() {
         </a>
       </header>
 
-      <PreviewFrame src={preview} alt={`${variant.name} preview for ${plate.name}`} className="hero-preview" />
+      <PreviewFrame src={preview} alt={`${variant.name} preview for ${plate.name}`} className="hero-preview" zoomable />
 
       {plate.variants.length > 1 ? (
         <div className="variant-tabs" role="tablist" aria-label="Plate variants">
