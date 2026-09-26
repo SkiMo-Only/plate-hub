@@ -380,6 +380,7 @@ main {
   gap: 12px;
   padding: 16px 16px 20px;
   background: rgba(8, 7, 6, 0.94);
+  cursor: pointer;
 }
 
 .lightbox-toolbar {
@@ -432,11 +433,12 @@ main {
   display: grid;
   place-items: center;
   overflow: hidden;
-  cursor: grab;
+  cursor: pointer;
   touch-action: none;
 }
 
-.lightbox-stage.is-dragging {
+.lightbox-stage.is-dragging,
+.lightbox-stage.is-dragging img {
   cursor: grabbing;
 }
 
@@ -446,6 +448,7 @@ main {
   width: auto;
   height: auto;
   object-fit: contain;
+  cursor: grab;
   transform-origin: center center;
   user-select: none;
   -webkit-user-drag: none;
