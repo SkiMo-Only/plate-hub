@@ -134,9 +134,16 @@ main {
 }
 
 .brand-mark {
-  color: var(--brass);
   display: grid;
   place-items: center;
+  width: 36px;
+  height: 36px;
+  flex-shrink: 0;
+}
+
+.brand-mark img {
+  width: 36px;
+  height: 36px;
 }
 
 .brand-text {
@@ -341,13 +348,107 @@ main {
   margin: 8px 0 28px;
 }
 
-.preview-frame img {
+.preview-open {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  display: block;
   width: 100%;
   height: 100%;
-  object-fit: cover;
-  object-position: center 54%;
-  transform: scale(1.16);
-  filter: saturate(0.92) contrast(1.05);
+  padding: 0;
+  border: 0;
+  background: transparent;
+  cursor: zoom-in;
+}
+
+.preview-frame img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
+  padding: 16px;
+}
+
+.lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 40;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 16px 16px 20px;
+  background: rgba(8, 7, 6, 0.94);
+}
+
+.lightbox-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.lightbox-hint {
+  margin: 0;
+  color: var(--muted);
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.06em;
+}
+
+.lightbox-controls {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+.lightbox-controls button {
+  background: transparent;
+  color: var(--text);
+  border: 1px solid var(--line-strong);
+  border-radius: 999px;
+  min-width: 42px;
+  padding: 8px 12px;
+  cursor: pointer;
+  font-family: var(--mono);
+  font-size: 0.78rem;
+}
+
+.lightbox-controls button:hover,
+.lightbox-controls button:focus-visible {
+  border-color: var(--brass);
+  color: var(--brass);
+}
+
+.lightbox-close {
+  padding-inline: 16px;
+}
+
+.lightbox-stage {
+  flex: 1;
+  min-height: 0;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  cursor: grab;
+  touch-action: none;
+}
+
+.lightbox-stage.is-dragging {
+  cursor: grabbing;
+}
+
+.lightbox-stage img {
+  max-width: calc(100vw - 32px);
+  max-height: calc(100dvh - 96px);
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  transform-origin: center center;
+  user-select: none;
+  -webkit-user-drag: none;
 }
 
 .preview-empty {
@@ -634,5 +735,10 @@ main {
   .preview-frame,
   .preview-frame.hero-preview {
     aspect-ratio: 16 / 9;
+  }
+
+  .lightbox-toolbar {
+    align-items: flex-start;
+    flex-direction: column;
   }
 }
