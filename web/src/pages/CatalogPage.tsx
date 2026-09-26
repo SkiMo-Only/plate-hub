@@ -43,13 +43,10 @@ export function CatalogPage() {
   return (
     <>
       <section className="hero">
-        <p className="hero-kicker">Custom keyboard plates</p>
-        <h1>
-          Manufacturing files for <em>MX</em> and <em>EC</em> switch systems.
+        <p className="hero-kicker">LA-VERSA.WORKS PLATE ARCHIVE</p>
+        <h1>Keyboard plates for <em>MX</em> and <em>EC</em> systems.
         </h1>
-        <p className="hero-lead">
-          Browse plate variants, CAD previews, and download DXF or STEP files prepared by La-Versa.works.
-        </p>
+        <p className="hero-lead">Browse and download plate files.</p>
         <dl className="hero-stats">
           <div>
             <dt>Keyboards</dt>

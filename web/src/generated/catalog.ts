@@ -2,9 +2,33 @@
 import type { Catalog } from '../types'
 
 export const catalog: Catalog = {
-  "generatedAt": "2026-09-15T10:37:48.519Z",
+  "generatedAt": "2026-09-26T12:22:04.446Z",
   "repoUrl": "https://github.com/SkiMo-Only/plate-hub",
   "plates": [
+    {
+      "id": "mx/bowl-keyboards/pangea-mini",
+      "slug": "mx-bowl-keyboards-pangea-mini",
+      "name": "Bowl Keyboards Pangea Mini",
+      "brand": "Bowl-Keyboards",
+      "switchFamily": "MX",
+      "folder": "MX/Bowl-Keyboards/Pangea-Mini",
+      "description": "Custom MX plate file for the **Bowl Keyboards Pangea Mini**.",
+      "notes": "Plate file by **La-Versa.works**.\n\nThis plate uses the soft plate configuration for the **Pangea Mini**.\n\nPlease verify dimensions, tolerances, material thickness, and compatibility before manufacturing.",
+      "credits": "",
+      "sourceUrl": "https://github.com/SkiMo-Only/plate-hub/tree/main/MX/Bowl-Keyboards/Pangea-Mini",
+      "variants": [
+        {
+          "name": "Soft Plate",
+          "file": "pangea-mini-soft.dxf",
+          "format": "dxf",
+          "preview": "pangea-mini-soft.png",
+          "switchType": "MX",
+          "configuration": "Soft plate",
+          "halfPlate": false,
+          "sizeBytes": 103580
+        }
+      ]
+    },
     {
       "id": "mx/frid4y/casper",
       "slug": "mx-frid4y-casper",
@@ -57,6 +81,29 @@ export const catalog: Catalog = {
           "switchType": "MX",
           "halfPlate": false,
           "sizeBytes": 55575
+        }
+      ]
+    },
+    {
+      "id": "mx/kbdfans/tofu60-2.0",
+      "slug": "mx-kbdfans-tofu60-2-0",
+      "name": "KBDFans Tofu60 2.0",
+      "brand": "KBDFans",
+      "switchFamily": "MX",
+      "folder": "MX/KBDFans/Tofu60-2.0",
+      "description": "Custom MX plate file for the **KBDFans Tofu60 2.0**.",
+      "notes": "Plate file by **La-Versa.works**.\n\nThis plate is designed for the **KBDFans Tofu60 2.0** and supports both **top mount** and **bowl mount** configurations.\n\nPlease verify dimensions, tolerances, material thickness, and compatibility before manufacturing.",
+      "credits": "",
+      "sourceUrl": "https://github.com/SkiMo-Only/plate-hub/tree/main/MX/KBDFans/Tofu60-2.0",
+      "variants": [
+        {
+          "name": "Top / Bowl Mount Plate",
+          "file": "tofu60-2.0-top.dxf",
+          "format": "dxf",
+          "preview": "tofu60-2.0-top.png",
+          "switchType": "MX",
+          "halfPlate": false,
+          "sizeBytes": 98651
         }
       ]
     },
@@ -159,6 +206,29 @@ export const catalog: Catalog = {
           "switchType": "MX",
           "halfPlate": true,
           "sizeBytes": 53572
+        }
+      ]
+    },
+    {
+      "id": "mx/wuque-studio/ikki68-aurora-r2",
+      "slug": "mx-wuque-studio-ikki68-aurora-r2",
+      "name": "Wuque Studio Ikki68 Aurora R2",
+      "brand": "Wuque-Studio",
+      "switchFamily": "MX",
+      "folder": "MX/Wuque-Studio/Ikki68-Aurora-R2",
+      "description": "Custom MX plate file for the **Wuque Studio Ikki68 Aurora R2**.",
+      "notes": "Plate file by **La-Versa.works**.\n\nPlease verify dimensions, tolerances, material thickness, and compatibility before manufacturing.",
+      "credits": "",
+      "sourceUrl": "https://github.com/SkiMo-Only/plate-hub/tree/main/MX/Wuque-Studio/Ikki68-Aurora-R2",
+      "variants": [
+        {
+          "name": "Standard Plate",
+          "file": "ikki68-aurora-r2.dxf",
+          "format": "dxf",
+          "preview": "ikki68-aurora-r2.png",
+          "switchType": "MX",
+          "halfPlate": false,
+          "sizeBytes": 153847
         }
       ]
     },
