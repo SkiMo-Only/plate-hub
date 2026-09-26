@@ -1,5 +1,6 @@
 import { Link, useLocation } from 'react-router-dom'
 import { catalog } from '../generated/catalog'
+import logo from '../assets/logo.svg'
 
 export function Header() {
   const location = useLocation()
@@ -10,15 +11,7 @@ export function Header() {
     <header className="site-header">
       <Link to="/" className="brand">
         <span className="brand-mark" aria-hidden="true">
-          <svg viewBox="0 0 32 32" width="28" height="28">
-            <rect x="3" y="8" width="26" height="16" rx="1.5" fill="none" stroke="currentColor" strokeWidth="1.4" />
-            <rect x="6" y="11" width="4" height="4" rx="0.5" />
-            <rect x="11.5" y="11" width="4" height="4" rx="0.5" />
-            <rect x="17" y="11" width="4" height="4" rx="0.5" />
-            <rect x="22.5" y="11" width="3.5" height="4" rx="0.5" />
-            <rect x="6" y="17" width="6.5" height="4" rx="0.5" />
-            <rect x="13.5" y="17" width="12.5" height="4" rx="0.5" />
-          </svg>
+          <img src={logo} alt="" width="36" height="36" />
         </span>
         <span className="brand-text">
           <span className="brand-name">Plate Hub</span>
