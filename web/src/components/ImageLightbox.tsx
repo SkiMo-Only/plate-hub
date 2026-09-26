@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState, type PointerEvent as ReactPointerEvent } from 'react'
+import { useEffect, useRef, useState, type MouseEvent as ReactMouseEvent, type PointerEvent as ReactPointerEvent } from 'react'
 import { createPortal } from 'react-dom'
 
 type ImageLightboxProps = {
@@ -26,6 +26,7 @@ export function ImageLightbox({ src, alt, onClose }: ImageLightboxProps) {
   const [view, setView] = useState<View>({ scale: 1, x: 0, y: 0 })
   const [dragging, setDragging] = useState(false)
   const drag = useRef<{ x: number; y: number; ox: number; oy: number } | null>(null)
+  const gestureMoved = useRef(false)
   const pointers = useRef(new Map<number, { x: number; y: number }>())
   const pinch = useRef<{ distance: number; scale: number } | null>(null)
   const onCloseRef = useRef(onClose)
@@ -73,20 +74,23 @@ export function ImageLightbox({ src, alt, onClose }: ImageLightboxProps) {
 
   function onPointerDown(event: ReactPointerEvent<HTMLDivElement>) {
     pointers.current.set(event.pointerId, { x: event.clientX, y: event.clientY })
-    event.currentTarget.setPointerCapture(event.pointerId)
+    gestureMoved.current = false
 
     if (pointers.current.size === 2) {
+      event.currentTarget.setPointerCapture(event.pointerId)
       const [a, b] = [...pointers.current.values()]
       pinch.current = {
         distance: Math.hypot(a.x - b.x, a.y - b.y),
         scale: view.scale,
       }
       drag.current = null
+      gestureMoved.current = true
       setDragging(false)
       return
     }
 
     if (view.scale <= 1) return
+    event.currentTarget.setPointerCapture(event.pointerId)
     drag.current = { x: event.clientX, y: event.clientY, ox: view.x, oy: view.y }
     setDragging(true)
   }
@@ -106,6 +110,7 @@ export function ImageLightbox({ src, alt, onClose }: ImageLightboxProps) {
     }
 
     if (!drag.current) return
+    if (Math.hypot(event.clientX - drag.current.x, event.clientY - drag.current.y) > 3) gestureMoved.current = true
     setView({
       scale: view.scale,
       x: drag.current.ox + (event.clientX - drag.current.x),
@@ -120,6 +125,28 @@ export function ImageLightbox({ src, alt, onClose }: ImageLightboxProps) {
     setDragging(false)
   }
 
+  function onStageClick(event: ReactMouseEvent<HTMLDivElement>) {
+    if (gestureMoved.current) {
+      gestureMoved.current = false
+      event.stopPropagation()
+      return
+    }
+    const image = event.currentTarget.querySelector('img')
+    if (!image) return
+    const rect = image.getBoundingClientRect()
+    const onImage =
+      event.clientX >= rect.left &&
+      event.clientX <= rect.right &&
+      event.clientY >= rect.top &&
+      event.clientY <= rect.bottom
+    if (onImage) event.stopPropagation()
+  }
+
+  function onControlClick(event: ReactMouseEvent<HTMLButtonElement>, action: () => void) {
+    event.stopPropagation()
+    action()
+  }
+
   function onDoubleClick() {
     setView((current) => (current.scale > 1 ? { scale: 1, x: 0, y: 0 } : { scale: 2.5, x: 0, y: 0 }))
   }
@@ -128,19 +155,29 @@ export function ImageLightbox({ src, alt, onClose }: ImageLightboxProps) {
 
   return createPortal(
     <div className="lightbox" role="dialog" aria-modal="true" aria-label={alt} onClick={onClose}>
-      <div className="lightbox-toolbar" onClick={(event) => event.stopPropagation()}>
+      <div className="lightbox-toolbar">
         <p className="lightbox-hint">Scroll, pinch, or double-click to zoom. Drag to pan.</p>
         <div className="lightbox-controls">
-          <button type="button" onClick={() => zoomBy(1 / 1.25)} aria-label="Zoom out">
+          <button type="button" onClick={(event) => onControlClick(event, () => zoomBy(1 / 1.25))} aria-label="Zoom out">
             −
           </button>
-          <button type="button" onClick={() => setView({ scale: 1, x: 0, y: 0 })} aria-label="Reset zoom">
+          <button
+            type="button"
+            onClick={(event) => onControlClick(event, () => setView({ scale: 1, x: 0, y: 0 }))}
+            aria-label="Reset zoom"
+          >
             {percent}
           </button>
-          <button type="button" onClick={() => zoomBy(1.25)} aria-label="Zoom in">
+          <button type="button" onClick={(event) => onControlClick(event, () => zoomBy(1.25))} aria-label="Zoom in">
             +
           </button>
-          <button ref={closeRef} type="button" className="lightbox-close" onClick={onClose} aria-label="Close preview">
+          <button
+            ref={closeRef}
+            type="button"
+            className="lightbox-close"
+            onClick={(event) => onControlClick(event, onClose)}
+            aria-label="Close preview"
+          >
             Close
           </button>
         </div>
@@ -148,7 +185,7 @@ export function ImageLightbox({ src, alt, onClose }: ImageLightboxProps) {
       <div
         ref={stageRef}
         className={dragging ? 'lightbox-stage is-dragging' : 'lightbox-stage'}
-        onClick={(event) => event.stopPropagation()}
+        onClick={onStageClick}
         onDoubleClick={onDoubleClick}
         onPointerDown={onPointerDown}
         onPointerMove={onPointerMove}
