@@ -19,6 +19,8 @@ Custom MX plate file for the **Wuque Studio Ikki68 Aurora R2**.
 
 Plate file by **La-Versa.works**.
 
+This plate includes cutouts designed to accommodate the **stock silicone dampening layer** of the Ikki68 Aurora R2.
+
 Please verify dimensions, tolerances, material thickness, and compatibility before manufacturing.
 
 ## License
